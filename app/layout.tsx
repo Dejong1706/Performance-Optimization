@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import CategoryBar from "./components/ui/categoryBar";
 import Footer from "./components/footer";
 import type { Metadata } from "next";
 import Navbar from "./components/navbar";
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
+        <CategoryBar />
         {children}
         <Footer />
       </body>
