@@ -1,17 +1,10 @@
+import { articleProps } from "./headLineNewsData";
 import axios from "axios";
 
-export interface articleProps {
-  author?: string;
-  content?: string;
-  description?: string;
-  title?: string;
-  urlToImage?: string;
-}
-
-export const HeadLineNewsData = async () => {
+export const CategoryNewsData = async (category: string) => {
   try {
     const response = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&pageSize=50&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+      `https://newsapi.org/v2/top-headlines?country=us&category=${category}&pageSize=50&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
     );
 
     if (response.status === 200) {
