@@ -8,10 +8,11 @@ export interface articleProps {
   urlToImage?: string;
 }
 
-export const HeadLineNewsData = async () => {
+export const SearchNewsData = async (searchWord: string) => {
+  console.log(searchWord);
   try {
     const response = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&pageSize=50&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+      `https://newsapi.org/v2/everything?q=${searchWord}&pageSize=50&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
     );
 
     if (response.status === 200) {

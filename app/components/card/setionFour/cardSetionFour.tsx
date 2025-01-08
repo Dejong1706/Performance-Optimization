@@ -27,7 +27,7 @@ export default function CardSetionFour({ data }: CardSectionArrayProps) {
         <div className="flex justify-center mt-4">
           <button
             onClick={handleLoadMore}
-            className="border-2 border-gray-600 px-4 py-2 w-64 rounded-md flex justify-center items-center"
+            className="border-2 border-gray-600 px-4 py-2 w-64 rounded-md flex justify-center items-center hover:bg-gray-100"
           >
             <p className="mr-2">Show More</p>
             <AiFillCaretDown className="text-gray-600" />
