@@ -1,6 +1,7 @@
 import { CardSectionProps } from "@/app/types/news";
 import { DateFormat } from "@/app/utils/dateFormat";
 import { FaUserCircle } from "react-icons/fa";
+import Link from "next/link";
 import React from "react";
 
 export default function CardSetionOne({ data }: CardSectionProps) {
@@ -16,20 +17,48 @@ export default function CardSetionOne({ data }: CardSectionProps) {
         </div>
       </div>
       <div className="w-[90%] mx-auto">
-        <h1 className="font-bold text-[1.6rem]">{data.title}</h1>
+        <Link
+          href={{
+            pathname: "/article",
+            query: {
+              title: data.title,
+              content: data.content,
+              urlToImage: data.urlToImage,
+              publishedAt: data.publishedAt,
+              publishName: data.source.name,
+              url: data.url,
+            },
+          }}
+        >
+          <h1 className="font-bold text-[1.6rem] hover:underline">
+            {data.title}
+          </h1>
+        </Link>
         <span className="flex my-4 text-gray-600">
           <p className="mr-2 font-bold text-orange-300">{data.source.name}</p>
           {`| ${DateFormat(data.publishedAt)}`}
         </span>
       </div>
       <div className="relative w-[90%] mx-auto">
-        <img
-          src={data.urlToImage}
-          width="200"
-          height="100"
-          alt="news Image"
-          style={{ objectFit: "cover", width: "100%", height: "auto" }}
-        />
+        <Link
+          href={{
+            pathname: "/article",
+            query: {
+              title: data.title,
+              content: data.content,
+              urlToImage: data.urlToImage,
+              publishedAt: data.publishedAt,
+              publishName: data.source.name,
+              url: data.url,
+            },
+          }}
+        >
+          <img
+            src={data.urlToImage}
+            alt="news Image"
+            className="object-cover w-full h-full rounded-md"
+          />
+        </Link>
       </div>
     </div>
   );
