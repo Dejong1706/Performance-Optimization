@@ -6,9 +6,9 @@ import { Suspense } from "react";
 export default async function SearchPage({
   params,
 }: {
-  params: { search: string };
+  params: Promise<{ search: string }>;
 }) {
-  const searchWord = params.search;
+  const searchWord = (await params).search;
   const newsData = await SearchNewsData(searchWord);
 
   return (

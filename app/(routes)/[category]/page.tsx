@@ -7,10 +7,10 @@ import { Suspense } from "react";
 export default async function CategoryPage({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
-  const category = params.category;
-  const data = await CategoryNewsData(params.category);
+  const category = (await params).category;
+  const data = await CategoryNewsData((await params).category);
 
   if (!data || data.length === 0) {
     return <NonData />;
