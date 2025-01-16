@@ -2,12 +2,10 @@
 
 import CardSetionOne from "../card/setionOne/cardSetionOne";
 import CardSetionTwo from "../card/setionTwo/cardSetionTwo";
-import Loading from "../loading";
 import { NewsData } from "@/app/types/news";
 import NonData from "./nonData";
 import React from "react";
 import dynamic from "next/dynamic";
-import { useQuery } from "@tanstack/react-query";
 
 const CardSetionThree = dynamic(
   () => import("../card/setionThree/cardSetionThree")
@@ -16,16 +14,14 @@ const CardSetionFour = dynamic(
   () => import("../card/setionFour/cardSetionFour")
 );
 
-export default function MainPost() {
-  const { data, isLoading, isError } = useQuery<NewsData[]>({
-    queryKey: ["HeadLineNewsData"],
-  });
+interface MainPostProps {
+  initialData: NewsData[] | undefined;
+}
 
-  if (isLoading) {
-    return <Loading />;
-  }
+export default function MainPost({ initialData }: MainPostProps) {
+  const data = initialData ?? [];
 
-  if (isError || !data || data.length === 0) {
+  if (data.length === 0) {
     return <NonData />;
   }
 
