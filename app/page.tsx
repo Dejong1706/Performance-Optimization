@@ -6,6 +6,7 @@ import {
 
 import { HeadLineNewsData } from "./data/headLineNewsData";
 import MainPost from "./components/ui/mainPost";
+import { NewsData } from "@/app/types/news";
 
 export default async function Home() {
   const queryClient = new QueryClient();
@@ -15,9 +16,13 @@ export default async function Home() {
     queryFn: HeadLineNewsData,
   });
 
+  const initialData = queryClient.getQueryData<NewsData[]>([
+    "HeadLineNewsData",
+  ]);
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <MainPost />
+      <MainPost initialData={initialData} />
     </HydrationBoundary>
   );
 }
