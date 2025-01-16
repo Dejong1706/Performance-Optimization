@@ -1,6 +1,7 @@
 "use client";
 
-import { DateFormat } from "../utils/dateFormat";
+import { DateFormat } from "../../utils/dateFormat";
+import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -15,14 +16,16 @@ export default function ArticlePage() {
   const url = searchParams.get("url");
 
   return (
-    <div className="px-16 py-8 w-[80%] mx-auto mb-12">
+    <main className="px-16 py-8 w-[80%] mx-auto mb-12">
       <h1 className="text-[2rem] font-bold mb-8">{title}</h1>
       {urlToImage && (
-        <div className="relative mx-auto">
-          <img
+        <div className="relative w-full h-[400px] mx-auto mb-4">
+          <Image
             src={urlToImage}
             alt="news Image"
-            className="object-cover w-full h-full rounded-md mb-4"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover rounded-md"
           />
         </div>
       )}
@@ -37,6 +40,6 @@ export default function ArticlePage() {
           <b className="border-b text-blue-600">{url}</b>
         </p>
       </Link>
-    </div>
+    </main>
   );
 }

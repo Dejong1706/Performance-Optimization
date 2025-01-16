@@ -21,7 +21,8 @@ export const HeadLineNewsData = async () => {
           article.content &&
           article.description &&
           article.title &&
-          article.urlToImage
+          article.urlToImage &&
+          article.urlToImage.startsWith("https://")
       );
 
       return filteredArticles;

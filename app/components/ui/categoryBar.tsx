@@ -17,7 +17,7 @@ export default function CategoryBar() {
   const pathname = usePathname();
 
   return (
-    <div className="bg-white border-b-2 text-black">
+    <nav className="bg-white border-b-2 text-black">
       <ul className="flex w-[60%] justify-evenly py-4 font-bold text-[1.2rem]">
         {categories.map((category) => {
           const isActive =
@@ -40,6 +40,6 @@ export default function CategoryBar() {
           );
         })}
       </ul>
-    </div>
+    </nav>
   );
 }

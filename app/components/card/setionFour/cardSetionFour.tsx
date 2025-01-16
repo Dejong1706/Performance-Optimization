@@ -1,27 +1,25 @@
-"use client";
-
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import { AiFillCaretDown } from "react-icons/ai";
 import { CardSectionArrayProps } from "@/app/types/news";
 import CardSetion from "./cardSetion";
 
-export default function CardSetionFour({ data }: CardSectionArrayProps) {
+const CardSetionFour = React.memo(({ data }: CardSectionArrayProps) => {
   const [visibleCount, setVisibleCount] = useState(4);
 
-  const handleLoadMore = () => {
+  const handleLoadMore = useCallback(() => {
     setVisibleCount((prevCount) => prevCount + 4);
-  };
+  }, []);
 
   return (
-    <div className="py-4">
-      <div className="flex flex-wrap justify-around">
+    <article className="py-4">
+      <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
         {data.slice(0, visibleCount).map((item, index) => (
-          <div key={index} className="p-2">
+          <div key={item.url || index} className="p-2">
             <CardSetion data={item} />
           </div>
         ))}
-      </div>
+      </section>
 
       {visibleCount < data.length && (
         <div className="flex justify-center mt-4">
@@ -34,6 +32,10 @@ export default function CardSetionFour({ data }: CardSectionArrayProps) {
           </button>
         </div>
       )}
-    </div>
+    </article>
   );
-}
+});
+
+CardSetionFour.displayName = "CardSetionFour";
+
+export default CardSetionFour;

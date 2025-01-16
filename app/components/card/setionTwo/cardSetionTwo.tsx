@@ -2,12 +2,16 @@ import { CardSectionArrayProps } from "@/app/types/news";
 import CardSetion from "./cardSetion";
 import React from "react";
 
-export default function CardSetionTwo({ data }: CardSectionArrayProps) {
+const CardSetionTwo = React.memo(({ data }: CardSectionArrayProps) => {
   return (
-    <div className="w-[50%] flex flex-col justify-center items-center py-2">
-      <CardSetion data={data[0]} />
-      <CardSetion data={data[1]} />
-      <CardSetion data={data[2]} />
-    </div>
+    <article className="w-[50%] h-[44rem] flex flex-col justify-around items-center py-2">
+      {data.slice(0, 3).map((item, index) => (
+        <CardSetion key={index} data={item} />
+      ))}
+    </article>
   );
-}
+});
+
+CardSetionTwo.displayName = "CardSetionTwo";
+
+export default CardSetionTwo;
