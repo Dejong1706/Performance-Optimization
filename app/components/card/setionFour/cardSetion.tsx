@@ -2,7 +2,6 @@ import ArticleLink from "../../articleLink";
 import { CardSectionProps } from "@/app/types/news";
 import { DateFormat } from "@/app/utils/dateFormat";
 import { FaUserCircle } from "react-icons/fa";
-import Image from "next/image";
 import React from "react";
 import { TextLimit } from "@/app/utils/textLimit";
 
