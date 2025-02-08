@@ -9,7 +9,7 @@ export default function ArticlePost() {
   const searchParams = useSearchParams();
 
   const title = searchParams.get("title");
-  const publishedAt = searchParams.get("publishedAt") ?? "2025-01-07T16:00:00Z";
+  const publishedAt = searchParams.get("publishedAt") ?? "2025-01-08T16:00:00Z";
   const urlToImage = searchParams.get("urlToImage");
   const content = searchParams.get("content");
   const publishName = searchParams.get("publishName");
