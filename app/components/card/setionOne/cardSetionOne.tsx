@@ -2,10 +2,10 @@ import ArticleLink from "../../articleLink";
 import { CardSectionProps } from "@/app/types/news";
 import { DateFormat } from "@/app/utils/dateFormat";
 import { FaUserCircle } from "react-icons/fa";
-import Image from "next/image";
 import React from "react";
 
 const CardSetionOne = React.memo(({ data }: CardSectionProps) => {
+  console.log(data.urlToImage);
   return (
     <article className="w-[50%] h-[44rem] p-4">
       <header className="flex items-center w-[90%] mx-auto">
@@ -30,13 +30,15 @@ const CardSetionOne = React.memo(({ data }: CardSectionProps) => {
       </section>
       <section className="relative w-[90%] h-[27rem] mx-auto">
         <ArticleLink data={data}>
-          <Image
+          <img
             src={data.urlToImage}
             alt="news Image"
-            fill
-            priority
+            loading="lazy"
             className="object-cover w-full h-full rounded-md"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{
+              aspectRatio: "16 / 9",
+              objectFit: "cover",
+            }}
           />
         </ArticleLink>
       </section>

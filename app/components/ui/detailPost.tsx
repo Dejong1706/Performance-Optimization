@@ -1,5 +1,4 @@
 import ArticleLink from "@/app/components/articleLink";
-import Image from "next/image";
 import { NewsData } from "@/app/types/news";
 import React from "react";
 
@@ -16,13 +15,15 @@ const DetailPost = React.memo(({ data }: { data: NewsData }) => (
     </header>
     <section className="relative w-[40%] h-[20rem]">
       <ArticleLink data={data}>
-        <Image
+        <img
           src={data.urlToImage}
           alt="news Image"
-          fill
-          priority
+          loading="lazy"
           className="object-cover w-full h-full rounded-md"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          style={{
+            aspectRatio: "16 / 9",
+            objectFit: "cover",
+          }}
         />
       </ArticleLink>
     </section>

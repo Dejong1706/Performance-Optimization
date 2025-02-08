@@ -1,7 +1,6 @@
 "use client";
 
 import { DateFormat } from "@/app/utils/dateFormat";
-import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -20,12 +19,15 @@ export default function ArticlePost() {
       <h1 className="text-[2rem] font-bold mb-8">{title}</h1>
       {urlToImage && (
         <div className="relative w-full h-[400px] mx-auto mb-4">
-          <Image
+          <img
             src={urlToImage}
             alt="news Image"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover rounded-md"
+            loading="lazy"
+            className="object-cover w-full h-full rounded-md"
+            style={{
+              aspectRatio: "16 / 9",
+              objectFit: "cover",
+            }}
           />
         </div>
       )}

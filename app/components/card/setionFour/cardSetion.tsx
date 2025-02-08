@@ -11,12 +11,11 @@ export default function CardSetion({ data }: CardSectionProps) {
     <section className="py-4">
       <div className="relative w-[20rem] h-[15rem] mx-auto">
         <ArticleLink data={data}>
-          <Image
+          <img
             src={data.urlToImage}
             alt="news Image"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-md"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover brightness-50"
           />
         </ArticleLink>
       </div>
