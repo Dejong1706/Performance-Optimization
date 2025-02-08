@@ -14,7 +14,7 @@
   - 다량의 이미지를 포함한 뉴스 콘텐츠 표시
   - 웹 성능 최적화 기술 적용 전후의 성능 비교
 
-- 배포 URL : https://performance-optimization-f9plzknwt-dejong1706s-projects.vercel.app/
+- 배포 URL : https://performance-optimization.vercel.app/
 
 <br>
 
