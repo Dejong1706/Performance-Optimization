@@ -2,7 +2,6 @@ import ArticleLink from "../../articleLink";
 import { CardSectionProps } from "@/app/types/news";
 import { DateFormat } from "@/app/utils/dateFormat";
 import { FaUserCircle } from "react-icons/fa";
-import Image from "next/image";
 import React from "react";
 import { TextLimit } from "@/app/utils/textLimit";
 
@@ -11,12 +10,11 @@ export default function CardSetion({ data }: CardSectionProps) {
     <section className="py-4">
       <div className="relative w-[20rem] h-[15rem] mx-auto">
         <ArticleLink data={data}>
-          <Image
+          <img
             src={data.urlToImage}
             alt="news Image"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-md"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover brightness-50"
           />
         </ArticleLink>
       </div>

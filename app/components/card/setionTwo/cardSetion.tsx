@@ -1,7 +1,6 @@
 import ArticleLink from "../../articleLink";
 import { CardSectionProps } from "@/app/types/news";
 import { DateFormat } from "@/app/utils/dateFormat";
-import Image from "next/image";
 import React from "react";
 import { TextLimit } from "@/app/utils/textLimit";
 
@@ -22,14 +21,15 @@ export default function CardSetion({ data }: CardSectionProps) {
       </div>
       <div className="relative w-[13rem] h-[10rem] mx-auto pr-2 py-2">
         <ArticleLink data={data}>
-          <Image
+          <img
             src={data.urlToImage}
             alt="news Image"
-            width={200}
-            height={180}
-            priority
+            loading="lazy"
             className="object-cover w-full h-full rounded-md"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{
+              aspectRatio: "16 / 9",
+              objectFit: "cover",
+            }}
           />
         </ArticleLink>
       </div>
